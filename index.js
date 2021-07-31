@@ -17,8 +17,21 @@ const finnhubClient = new finnhub.DefaultApi()
 //   })
 
 // company profile
-fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=${process.env.finnhubKey}`)
-  .then(res => res.json())
-  .then(json => {
+// fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=${process.env.finnhubKey}`)
+//   .then(res => res.json())
+//   .then(json => {
+//     console.log(json);
+//   })
+
+// news sentiment
+// fetch(`https://finnhub.io/api/v1//news-sentiment?symbol=AAPL&token=${process.env.finnhubKey}`)
+//   .then(res => res.json())
+//   .then(json => {
+//     console.log(json);
+//   })
+
+fetch(`https://finnhub.io/api/v1/stock/peers?symbol=AAPL&token=${process.env.finnhubKey}`)
+.then(res => res.json())
+.then(json => {
     console.log(json);
-  })
+})
