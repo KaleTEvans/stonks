@@ -24,14 +24,21 @@ const finnhubClient = new finnhub.DefaultApi()
 //   })
 
 // news sentiment
-// fetch(`https://finnhub.io/api/v1//news-sentiment?symbol=AAPL&token=${process.env.finnhubKey}`)
-//   .then(res => res.json())
-//   .then(json => {
-//     console.log(json);
-//   })
-
-fetch(`https://finnhub.io/api/v1/stock/peers?symbol=AAPL&token=${process.env.finnhubKey}`)
-.then(res => res.json())
-.then(json => {
+fetch(`https://finnhub.io/api/v1//news-sentiment?symbol=AAPL&token=${process.env.finnhubKey}`)
+  .then(res => res.json())
+  .then(json => {
     console.log(json);
-})
+  })
+
+// fetch(`https://finnhub.io/api/v1/stock/peers?symbol=AAPL&token=${process.env.finnhubKey}`)
+// .then(res => res.json())
+// .then(json => {
+//     console.log(json);
+// })
+
+// fetch(`https://api.twelvedata.com/time_series?symbol=IXIC,SPX,DJI&interval=1min&apikey=${process.env.TwelveData_Key}`)
+// .then(res => res.json())
+// .then(json => {
+//     console.log(json);
+// })
+

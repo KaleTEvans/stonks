@@ -4,6 +4,7 @@ const typeDefs = gql`
 
     type Query {
         generalNews: [News]
+        majorIndeces: IndexPrices
         companyProfile(ticker: String!): Profile
         companySentiment(ticker: String!): Sentiment
         companyPeers(ticker: String!): [String]
@@ -18,6 +19,31 @@ const typeDefs = gql`
         source: String
         summary: String
         url: String
+    }
+
+    type IndexPrices {
+        IXIC: Index
+        SPX: Index
+        DJI: Index
+    }
+
+    type Index {
+        meta: IndexObj
+        values: [IndexPriceInfo]
+    }
+
+    type IndexObj {
+        symbol: String
+        exchange: String
+    }
+
+    type IndexPriceInfo {
+        datetime: String
+        open: String
+        high: String
+        low: String
+        close: String
+        volume: String
     }
 
     type Profile {
