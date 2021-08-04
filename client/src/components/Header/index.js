@@ -8,7 +8,7 @@ const Header = ({ indeces })=> {
         <header>
             {indeces && (
                 <div>
-                    <p>{indeces.DJI.meta.symbol}</p>
+                    <p></p>
                     <p>{indeces.DJI.values[0].open}</p>
                 </div>
             )}

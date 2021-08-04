@@ -24,11 +24,11 @@ const finnhubClient = new finnhub.DefaultApi()
 //   })
 
 // news sentiment
-fetch(`https://finnhub.io/api/v1//news-sentiment?symbol=AAPL&token=${process.env.finnhubKey}`)
-  .then(res => res.json())
-  .then(json => {
-    console.log(json);
-  })
+// fetch(`https://finnhub.io/api/v1//news-sentiment?symbol=AAPL&token=${process.env.finnhubKey}`)
+//   .then(res => res.json())
+//   .then(json => {
+//     console.log(json);
+//   })
 
 // fetch(`https://finnhub.io/api/v1/stock/peers?symbol=AAPL&token=${process.env.finnhubKey}`)
 // .then(res => res.json())

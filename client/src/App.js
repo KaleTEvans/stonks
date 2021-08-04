@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>
-      </ApolloProvider>
+    </ApolloProvider>
   );
 }
 

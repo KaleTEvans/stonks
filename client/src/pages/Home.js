@@ -11,6 +11,7 @@ const Home = () => {
     const indeces = data?.majorIndeces || [];
 
     console.log(indeces);
+    if (loading) return null
 
     return (
         <main>
