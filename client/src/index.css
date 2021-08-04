@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.index {
+  background-color: rgb(190, 188, 188);
+  margin: 5px;
+  border-radius: 2px;
+  border: 2px solid black;
+}
+
+.index-symbol {
+  font-weight: bolder;
+}

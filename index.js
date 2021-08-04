@@ -36,9 +36,9 @@ const finnhubClient = new finnhub.DefaultApi()
 //     console.log(json);
 // })
 
-// fetch(`https://api.twelvedata.com/time_series?symbol=IXIC,SPX,DJI&interval=1min&apikey=${process.env.TwelveData_Key}`)
-// .then(res => res.json())
-// .then(json => {
-//     console.log(json);
-// })
+fetch(`https://api.twelvedata.com/time_series?symbol=IXIC&interval=1h&apikey=${process.env.TwelveData_Key}`)
+.then(res => res.json())
+.then(json => {
+    console.log(json);
+})
 

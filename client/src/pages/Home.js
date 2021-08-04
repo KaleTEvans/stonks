@@ -6,8 +6,9 @@ import { useQuery } from '@apollo/client';
 import { QUERY_INDECES } from '../utils/queries';
 
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_INDECES);
-    console.log(data)
+    const { loading, data } = useQuery(QUERY_INDECES, {
+        pollInterval: 60000
+    });
     const indeces = data?.majorIndeces || [];
 
     console.log(indeces);
