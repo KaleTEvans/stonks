@@ -1,4 +1,5 @@
 import React from 'react';
+import Index from '../components/Index';
 import Header from '../components/Header';
 import { Container } from 'react-bootstrap';
 
@@ -15,11 +16,14 @@ const Home = () => {
     if (loading) return null
 
     return (
-        <main>
-            {indeces && (
-                <Header indeces={indeces}></Header>
-            )}
-        </main>
+        <>
+            <Header />
+            <main>
+                {indeces && (
+                    <Index indeces={indeces}></Index>
+                )}
+            </main>
+        </>
     )
 }
 
