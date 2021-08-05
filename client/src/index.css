@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,6 @@ header {
   width: 12%;
   height: auto;
   background-size: cover;
-  margin: 10px;
 }
 
 body {
@@ -23,7 +22,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
+.main {
   background-image: url('../src/images/page-background.jpg');
   background-size: cover;
   background-attachment: fixed;

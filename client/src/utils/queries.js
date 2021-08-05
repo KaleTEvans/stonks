@@ -48,3 +48,17 @@ export const QUERY_INDECES = gql`
         }
     }
 `;
+
+export const QUERY_NEWS = gql`
+    {
+        generalNews {
+            category
+            datetime
+            headline
+            image
+            source
+            summary
+            url
+        }
+    }
+`;
