@@ -62,3 +62,13 @@ export const QUERY_NEWS = gql`
         }
     }
 `;
+
+export const QUERY_CRYPTO = gql`
+    {
+        cryptoPrices {
+            id
+            name
+            price
+        }
+    }
+`

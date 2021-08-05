@@ -10,7 +10,6 @@ const News = () => {
     const news = data?.generalNews || [];
 
     if (loading) return null
-    console.log(news)
 
     return (
         <Container style={{ height: '30%', overflow: 'hidden' }}>

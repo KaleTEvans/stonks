@@ -9,6 +9,7 @@ const typeDefs = gql`
         companySentiment(ticker: String!): Sentiment
         companyPeers(ticker: String!): [String]
         insiderTransactions(ticker: String!): TransactionData
+        cryptoPrices: [Crypto]
     }
 
     type News {
@@ -93,6 +94,12 @@ const typeDefs = gql`
         transactionDate: String
         transactionCode: String
         transactionPrice: Float
+    }
+
+    type Crypto {
+        id: String
+        name: String
+        price: String
     }
 
 `;

@@ -26,6 +26,10 @@ const resolvers = {
         insiderTransactions: (root, args) => {
             return fetch(`https://finnhub.io/api/v1//stock/insider-transactions?symbol=${args.ticker}&token=${process.env.finnhubKey}`)
             .then(res => res.json())
+        },
+        cryptoPrices: (root, args) => {
+            return fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.NomicsKey}&ids=BTC,ETH`)
+            .then(res => res.json())
         }
     }
 }

@@ -7,10 +7,10 @@ import { QUERY_INDECES } from '../utils/queries';
 
 const Home = () => {
     // get index prices
-    const { loading: loadingOne, data: dataOne } = useQuery(QUERY_INDECES, {
+    let { loading: loadingOne, data: dataOne } = useQuery(QUERY_INDECES, {
         pollInterval: 60000
     });
-    const indeces = dataOne?.majorIndeces || [];
+    let indeces = dataOne?.majorIndeces || [];
 
     if (loadingOne) return null
 

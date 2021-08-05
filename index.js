@@ -10,11 +10,11 @@ const finnhubClient = new finnhub.DefaultApi()
 //   console.log(data)
 // });
 
-fetch(`https://finnhub.io/api/v1/news?category=general&token=${process.env.finnhubKey}`)
-  .then(res => res.json())
-  .then(json => {
-    console.log(json);
-  })
+// fetch(`https://finnhub.io/api/v1/news?category=general&token=${process.env.finnhubKey}`)
+//   .then(res => res.json())
+//   .then(json => {
+//     console.log(json);
+//   })
 
 // company profile
 // fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=${process.env.finnhubKey}`)
@@ -42,3 +42,8 @@ fetch(`https://finnhub.io/api/v1/news?category=general&token=${process.env.finnh
 //     console.log(json);
 // })
 
+fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.NomicsKey}&ids=BTC,ETH`)
+.then(res => res.json())
+.then(json => {
+  console.log(json);
+})
