@@ -12,10 +12,10 @@ const Index = ({ indeces })=> {
         DJI: parseFloat(indeces.DJI.values[0].close).toFixed(2)
     };
 
-    const { loading, data } = useQuery(QUERY_CRYPTO, {
+    let { loading, data } = useQuery(QUERY_CRYPTO, {
         pollInterval: 60000
     });
-    const crypto = data?.cryptoPrices || []
+    let crypto = data?.cryptoPrices || []
 
     if (loading) return null
 

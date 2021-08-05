@@ -10,6 +10,7 @@ const typeDefs = gql`
         companyPeers(ticker: String!): [String]
         insiderTransactions(ticker: String!): TransactionData
         cryptoPrices: [Crypto]
+        trendingTickers: Trending
     }
 
     type News {
@@ -101,6 +102,27 @@ const typeDefs = gql`
         name: String
         price: String
     }
+
+    type Trending {
+        finance: Tickers
+    }
+
+    type Tickers {
+        result: [Results]
+    }
+
+    type Results {
+        quotes: [TrendingList]
+    }
+
+    type TrendingList {
+        symbol: String
+        regularMarketPrice: Float
+        regularMarketChange: Float
+        regularMarketChangePercent: Float
+        longName: String
+    }
+
 
 `;
 

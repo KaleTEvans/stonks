@@ -71,4 +71,22 @@ export const QUERY_CRYPTO = gql`
             price
         }
     }
-`
+`;
+
+export const QUERY_TRENDING_TICKERS = gql`
+    {
+        trendingTickers {
+            finance {
+                result {
+                    quotes {
+                        symbol
+                        regularMarketPrice
+                        regularMarketChange
+                        regularMarketChangePercent
+                        longName
+                    }
+                }
+            }
+        }
+    }
+`;

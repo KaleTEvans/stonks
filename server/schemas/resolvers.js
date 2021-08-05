@@ -30,6 +30,16 @@ const resolvers = {
         cryptoPrices: (root, args) => {
             return fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.NomicsKey}&ids=BTC,ETH`)
             .then(res => res.json())
+        },
+        trendingTickers: () => {
+            return fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-trending-tickers?region=US", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": process.env.YahooKey,
+                    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com"
+                }
+            })
+            .then(res => res.json())
         }
     }
 }
