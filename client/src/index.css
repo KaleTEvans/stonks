@@ -44,3 +44,15 @@ code {
 .index-symbol {
   font-weight: bolder;
 }
+
+.trending {
+  font-weight: bold;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

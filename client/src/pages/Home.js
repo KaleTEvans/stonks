@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_INDECES } from '../utils/queries';
+import TrendingTickers from '../components/TrendingTickers';
 
 const Home = () => {
     // get index prices
@@ -19,6 +20,9 @@ const Home = () => {
             {indeces && (
                 <Index indeces={indeces}></Index>
             )}
+            <Container fluid>
+                <TrendingTickers />
+            </Container>
         </>
     )
 }
