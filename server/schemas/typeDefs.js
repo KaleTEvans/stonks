@@ -15,6 +15,7 @@ const typeDefs = gql`
         CompanySentiment: Sentiment
         CompanyPeers: [String]
         InsiderTransactions: TransactionData
+        CompanyNews: [News]
     }
 
     type News {
