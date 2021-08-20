@@ -5,12 +5,16 @@ const typeDefs = gql`
     type Query {
         generalNews: [News]
         majorIndeces: IndexPrices
-        companyProfile(ticker: String!): Profile
-        companySentiment(ticker: String!): Sentiment
-        companyPeers(ticker: String!): [String]
-        insiderTransactions(ticker: String!): TransactionData
         cryptoPrices: [Crypto]
         trendingTickers: Trending
+        companyData(ticker: String!): Info
+    }
+
+    type Info {
+        CompanyProfile: Profile
+        CompanySentiment: Sentiment
+        CompanyPeers: [String]
+        InsiderTransactions: TransactionData
     }
 
     type News {

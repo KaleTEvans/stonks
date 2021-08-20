@@ -90,3 +90,21 @@ export const QUERY_TRENDING_TICKERS = gql`
         }
     }
 `;
+
+export const QUERY_COMPANY_PROFILE = gql`
+    query companyProfile($ticker: ticker!) {
+        companyProfile(ticker: $ticker) {
+            country
+            currency
+            exchange
+            finnhubIndustry
+            ipo
+            logo
+            marketCapitalization
+            name
+            shareOutstanding
+            ticker
+            weburl
+        }
+    }
+`
