@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import { useQuery } from '@apollo/client';
+
 import { QUERY_CRYPTO } from '../../utils/queries';
 
 const Index = ({ indeces })=> {

@@ -3,9 +3,9 @@ import Index from '../components/Index';
 import { Container, Row, Form, Col, Button } from 'react-bootstrap';
 
 import { useQuery, useLazyQuery } from '@apollo/client';
-import { QUERY_INDECES, QUERY_COMPANY_PROFILE } from '../utils/queries';
+import { QUERY_INDECES } from '../utils/queries';
 import TrendingTickers from '../components/TrendingTickers';
-import { getStockData } from '../utils/api';
+import StockData from '../components/StockData'
 
 const Home = () => {
     // states for ticker search
@@ -21,6 +21,10 @@ const Home = () => {
     let indeces = dataOne?.majorIndeces || [];
      if (loadingOne) return null;
 
+    //const [ searchTicker, {loading: loadingTwo, data: dataTwo }] = useLazyQuery(QUERY_COMPANY_DATA);
+    console.log(searchedTicker)
+    
+
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -29,8 +33,8 @@ const Home = () => {
         }
 
         try {
-
-
+            setSearchedTicker(searchInput)
+            console.log(searchedTicker)
             setSearchInput('');
         } catch (err) {
             console.log(err);
@@ -67,6 +71,11 @@ const Home = () => {
                                 </Col>
                             </Row>
                         </Form>
+                        {searchedTicker.length ? (
+                            <Row>
+                                <StockData searchedTicker={searchedTicker} />
+                            </Row>
+                        ) : <h2>COCK</h2>}  
                     </Col>
                 </Row>
             </Container>

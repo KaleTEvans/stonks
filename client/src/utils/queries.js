@@ -91,20 +91,56 @@ export const QUERY_TRENDING_TICKERS = gql`
     }
 `;
 
-export const QUERY_COMPANY_PROFILE = gql`
-    query companyProfile($ticker: ticker!) {
-        companyProfile(ticker: $ticker) {
-            country
-            currency
-            exchange
-            finnhubIndustry
-            ipo
-            logo
-            marketCapitalization
-            name
-            shareOutstanding
-            ticker
-            weburl
+export const QUERY_COMPANY_DATA = gql`
+    query companyData($ticker: String!) {
+        companyData(ticker: $ticker) {
+            CompanyProfile {
+                country
+                currency
+                exchange
+                finnhubIndustry
+                ipo
+                logo
+                marketCapitalization
+                name
+                shareOutstanding
+                ticker
+                weburl
+            }
+            CompanySentiment {
+                buzz {
+                    articlesInLastWeek
+                    buzz
+                    weeklyAverage
+                }
+                companyNewsScore
+                sectorAverageBullishPercent
+                sectorAverageNewsScore
+                sentiment {
+                    bearishPercent
+                    bullishPercent
+                }
+            }
+            CompanyPeers
+            InsiderTransactions {
+                data {
+                    name
+                    share
+                    filingDate
+                    transactionDate
+                    transactionCode
+                    transactionPrice
+                }
+            }
+            CompanyNews {
+                category
+                datetime
+                headline
+                image
+                source
+                summary
+                url
+            }
         }
     }
 `
