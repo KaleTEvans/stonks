@@ -8,6 +8,7 @@ const typeDefs = gql`
         cryptoPrices: [Crypto]
         trendingTickers: Trending
         companyData(ticker: String!): Info
+        getPeers (peers: String!): Peers
     }
 
     type Info {
@@ -112,8 +113,16 @@ const typeDefs = gql`
         finance: Tickers
     }
 
+    type Peers {
+        quoteResponse: PeerResponse
+    }
+
     type Tickers {
         result: [Results]
+    }
+
+    type PeerResponse {
+        result: [PeerData]
     }
 
     type Results {
@@ -128,6 +137,12 @@ const typeDefs = gql`
         longName: String
     }
 
+    type PeerData {
+        regularMarketChangePercent: Float
+        symbol: String
+        fiftyTwoWeekHigh: Float
+        fiftyTwoWeekLow: Float
+    }
 
 `;
 

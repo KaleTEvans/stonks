@@ -4,12 +4,15 @@ require('dotenv').config();
 class DateFormatter {
     constructor(rawDate, rawDateLastWeek) {
         this.rawDate = new Date()
+        console.log(this.rawDate.getMonth())
         this.rawDateLastWeek = new Date(Date.now() - 604800000)
     }
     getTodayDate() {
         let year = this.rawDate.getFullYear().toString();
-        let month = this.rawDate.getMonth().toString();
-        let day = this.rawDate.getDay().toString();
+        console.log(year)
+        let prevMonth = this.rawDate.getMonth() + 1;
+        let month = prevMonth.toString()
+        let day = this.rawDate.getDate().toString();
 
         if (month.length < 2) {
             month = '0' + month;
@@ -22,8 +25,9 @@ class DateFormatter {
     }
     getLastWeekDate() {
         let year = this.rawDateLastWeek.getFullYear().toString();
-        let month = this.rawDateLastWeek.getMonth().toString();
-        let day = this.rawDateLastWeek.getDay().toString();
+        let prevMonth = this.rawDateLastWeek.getMonth() + 1;
+        let month = prevMonth.toString()
+        let day = this.rawDateLastWeek.getDate().toString();
 
         if (month.length < 2) {
             month = '0' + month;
@@ -60,6 +64,16 @@ const resolvers = {
             })
             .then(res => res.json())
         },
+        getPeers: (root, args) => {
+            return fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=${args.peers}`, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+                    "x-rapidapi-key": process.env.YahooKey
+	            }
+            })
+            .then(res => res.json())
+        },
         companyData: async (root, args) => {
             let date = new DateFormatter()
 
@@ -69,7 +83,9 @@ const resolvers = {
                 const CompanyPeers = await fetch(`https://finnhub.io/api/v1/stock/peers?symbol=${args.ticker}&token=${process.env.finnhubKey}`).then(res => res.json())
                 const InsiderTransactions = await fetch(`https://finnhub.io/api/v1//stock/insider-transactions?symbol=${args.ticker}&token=${process.env.finnhubKey}`).then(res => res.json())
                 const CompanyNews = await fetch(`https://finnhub.io/api/v1//company-news?symbol=${args.ticker}&from=${date.getLastWeekDate()}&to=${date.getTodayDate()}&token=${process.env.finnhubKey}`).then(res => res.json())
-                console.log({CompanyProfile, CompanySentiment, CompanyPeers, InsiderTransactions, CompanyNews})
+                console.log({CompanyNews})
+                console.log(date.getLastWeekDate())
+                console.log(date.getTodayDate())
                 return {CompanyProfile, CompanySentiment, CompanyPeers, InsiderTransactions, CompanyNews}
             } catch (error) {
                 console.log(error)

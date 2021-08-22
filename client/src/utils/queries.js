@@ -143,4 +143,19 @@ export const QUERY_COMPANY_DATA = gql`
             }
         }
     }
-`
+`;
+
+export const QUERY_PEERS = gql`
+    query getPeers($peers: String!) {
+        getPeers(peers: $peers) {
+            quoteResponse {
+                result {
+                    regularMarketChangePercent
+                    symbol
+                    fiftyTwoWeekHigh
+                    fiftyTwoWeekLow
+                }
+            }
+        }
+    }
+`;
