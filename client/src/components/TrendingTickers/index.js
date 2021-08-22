@@ -22,12 +22,12 @@ const TrendingTickers = () => {
     }
 
     return (
-        <Col xs={12} md='auto'>
+        <Col xs={12} md={2}>
             <h5 style={{ marginBottom: '2px' }}>Trending</h5>
             {trending.map((trendingTicker) => {
                 return(
                     <Row style={{ backgroundColor: 'gainsboro', border: '1px solid black', margin: '1px' }}>
-                        <Col md={5}>
+                        <Col md={9}>
                             <p className={'mb-0 trending'} style={{ fontSize: '12px' }}>
                                 {trendingTicker.symbol}
                             </p>
