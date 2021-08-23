@@ -26,7 +26,7 @@ const StockData = ({ searchedTicker }) => {
     if (companyData.CompanySentiment.buzz.buzz > 1) buzzScore = true  
     console.log(buzzScore)
 
-    const sentimentScoringSystem = new SentimentModel(companyData.CompanySentiment);
+    const sentimentScoringSystem = new SentimentModel(companyData.CompanySentiment, companyData.CompanyProfile.ticker);
 
     return (
         <>
@@ -65,7 +65,7 @@ const StockData = ({ searchedTicker }) => {
                             {companyData.CompanyNews.map(article => {
                                 return (
                                     <Row className='mx-2'>
-                                        <Card className='mb-2 mt-2' style={{ backgroundColor: 'gainsboro' }}>
+                                        <Card className='mb-2 mt-2' style={{ backgroundColor: 'snow' }}>
                                             <Card.Link href={article.url} target='_blank'>
                                                 {article.image && (
                                                     <Card.Img variant='top' src={article.image} style={{ width: '100%', height: '12vw', objectFit: 'cover' }}/>

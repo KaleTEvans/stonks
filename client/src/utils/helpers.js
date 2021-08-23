@@ -2,11 +2,12 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 class SentimentModel {
-    constructor(CompanySentiment) {
+    constructor(CompanySentiment, ticker) {
         this.CompanySentiment = CompanySentiment;
         this.buzzScore = this.CompanySentiment.buzz.buzz.toFixed(2);
         this.positiveSentiment = this.CompanySentiment.sentiment.bullishPercent;
         this.negativeSentiment = this.CompanySentiment.sentiment.bearishPercent;
+        this.ticker = ticker
 
         this.sentimentRatingScore = 0;
     }
@@ -25,10 +26,10 @@ class SentimentModel {
             <>
                 <Row>
                     <Col xs={4} md={3}>
-                        <p className={letterColor}>Buzz Score: {this.buzzScore}</p>
+                        <p className={'mb-1 ' + letterColor}>Buzz Score: {this.buzzScore}</p>
                     </Col>
                     <Col>
-                        <p>This Stock has been receiving {moreOrLess} news coverage lately</p>
+                        <p className='mb-1'>{this.ticker} has been receiving {moreOrLess} news coverage lately</p>
                     </Col>
                 </Row>
             </>
@@ -41,22 +42,25 @@ class SentimentModel {
 
         if (sentimentRatio >= 1.5) {
             bullOrBear = 'green';
-            text = 'very bullish'
+            text = 'Very Bullish'
         } if (1 <= sentimentRatio < 1.5) {
             bullOrBear = 'light-green';
-            text = 'somewhat bullish';
+            text = 'Somewhat Bullish';
             this.sentimentRating = this.sentimentRating + 0.5
         } if (sentimentRatio < 1) {
-            bullOrBear = 'bearish';
-            text = 'bearish';
+            bullOrBear = 'red';
+            text = 'Bearish';
         }
         return (
             <>
-                <Col md={6}>
-                    <p>Bullish Sentiment %: <span className='green'>{this.positiveSentiment}</span></p>
+                <Col md={5}>
+                    <p>Bullish Sentiment %: <span className='green mb-1'>{this.positiveSentiment}</span></p>
                 </Col>
-                <Col md={6}>
-                    <p>Bearish Sentiment %: <span className='red'>{this.negativeSentiment}</span></p>
+                <Col md={5}>
+                    <p>Bearish Sentiment %: <span className='red mb-1'>{this.negativeSentiment}</span></p>
+                </Col>
+                <Col md={2}>
+                    <p className={'mb-1 ' + bullOrBear}>{text}</p>
                 </Col>
             </>
         )

@@ -24,12 +24,11 @@ const PeerList = ({ companyPeers }) => {
 
     return (
         <>
-            <Container fluid>
-                <h6 className='text-center'>Industry Peers</h6>
+                <h6 style={{ color: 'darkblue' }}>Industry Peers</h6>
                 {peerData.map(peer => {
                     return (
-                        <Row style={{ backgroundColor: 'gainsboro', border: '1px solid black', margin: '1px' }}>
-                            <Col xs={7} >
+                        <Row style={{ backgroundColor: 'white', borderBottom: '1px dotted black', margin: '1px' }}>
+                            <Col xs={8} >
                                 <p style={{ fontSize: '12px', marginBottom: '0' }}>{peer.symbol}</p>
                                 
                             </Col>
@@ -41,8 +40,6 @@ const PeerList = ({ companyPeers }) => {
                         </Row>
                     )
                 })}
-
-            </Container>
         </>
     )
 }
