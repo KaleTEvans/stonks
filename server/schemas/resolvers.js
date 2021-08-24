@@ -83,10 +83,10 @@ const resolvers = {
                 const CompanyPeers = await fetch(`https://finnhub.io/api/v1/stock/peers?symbol=${args.ticker}&token=${process.env.finnhubKey}`).then(res => res.json())
                 const InsiderTransactions = await fetch(`https://finnhub.io/api/v1//stock/insider-transactions?symbol=${args.ticker}&token=${process.env.finnhubKey}`).then(res => res.json())
                 const CompanyNews = await fetch(`https://finnhub.io/api/v1//company-news?symbol=${args.ticker}&from=${date.getLastWeekDate()}&to=${date.getTodayDate()}&token=${process.env.finnhubKey}`).then(res => res.json())
-                console.log({CompanyNews})
-                console.log(date.getLastWeekDate())
-                console.log(date.getTodayDate())
-                return {CompanyProfile, CompanySentiment, CompanyPeers, InsiderTransactions, CompanyNews}
+                const CompanyEarnings = await fetch(`https://www.alphavantage.co/query?function=EARNINGS&symbol=${args.ticker}&apikey=${process.env.AlphaKey}`).then(res => res.json())
+                console.log({CompanyEarnings})
+
+                return {CompanyProfile, CompanySentiment, CompanyPeers, InsiderTransactions, CompanyNews, CompanyEarnings}
             } catch (error) {
                 console.log(error)
             }

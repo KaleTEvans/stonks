@@ -17,6 +17,7 @@ const typeDefs = gql`
         CompanyPeers: [String]
         InsiderTransactions: TransactionData
         CompanyNews: [News]
+        CompanyEarnings: EarningsData
     }
 
     type News {
@@ -93,6 +94,11 @@ const typeDefs = gql`
         symbol: String
     }
 
+    type EarningsData {
+        symbol: String!
+        quarterlyEarnings: [Earnings]
+    }
+
     type Transactions {
         name: String
         share: Float
@@ -101,6 +107,12 @@ const typeDefs = gql`
         transactionDate: String
         transactionCode: String
         transactionPrice: Float
+    }
+
+    type Earnings {
+        reportedDate: String
+        reportedEPS: String
+        estimatedEPS: String
     }
 
     type Crypto {

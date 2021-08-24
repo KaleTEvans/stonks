@@ -26,10 +26,10 @@ class SentimentModel {
             <>
                 <Row>
                     <Col xs={4} md={3}>
-                        <p className={'mb-1 ' + letterColor}>Buzz Score: {this.buzzScore}</p>
+                        <p className={'mb-0 ' + letterColor} style={{ fontSize: '14px' }}>Buzz Score: {this.buzzScore}</p>
                     </Col>
                     <Col>
-                        <p className='mb-1'>{this.ticker} has been receiving {moreOrLess} news coverage lately</p>
+                        <p className='mb-0' style={{ fontSize: '14px' }}>{this.ticker} has been receiving {moreOrLess} news coverage lately</p>
                     </Col>
                 </Row>
             </>
@@ -54,13 +54,14 @@ class SentimentModel {
         return (
             <>
                 <Col md={5}>
-                    <p>Bullish Sentiment %: <span className='green mb-1'>{this.positiveSentiment}</span></p>
+                    <p style={{ fontSize: '14px' }}>Overall Sentiment: <span className={'mb-1 ' + bullOrBear}>{text}</span></p>
+                    
                 </Col>
-                <Col md={5}>
-                    <p>Bearish Sentiment %: <span className='red mb-1'>{this.negativeSentiment}</span></p>
+                <Col md={3}>
+                    <p style={{ fontSize: '14px' }}>Bullish %: <span className='green mb-1'>{this.positiveSentiment}</span></p>                  
                 </Col>
-                <Col md={2}>
-                    <p className={'mb-1 ' + bullOrBear}>{text}</p>
+                <Col md={3}>
+                    <p style={{ fontSize: '14px' }}>Bearish %: <span className='red mb-1'>{this.negativeSentiment}</span></p>
                 </Col>
             </>
         )
